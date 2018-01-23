@@ -1,0 +1,13 @@
+use_frameworks!
+
+target 'RateMe_Example' do
+  pod 'RateMe', :path => '../'
+
+  target 'RateMe_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'OCMock', '~> 3.4'
+  end
+end

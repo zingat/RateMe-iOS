@@ -1,0 +1,25 @@
+PODS:
+  - Expecta (1.0.6)
+  - OCMock (3.4.1)
+  - RateMe (0.1.0)
+  - Specta (1.0.7)
+
+DEPENDENCIES:
+  - Expecta
+  - OCMock (~> 3.4)
+  - RateMe (from `../`)
+  - Specta
+
+EXTERNAL SOURCES:
+  RateMe:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  OCMock: 2cd0716969bab32a2283ff3a46fd26a8c8b4c5e3
+  RateMe: 8cae66fa0e079c3a2734be515d810b34db1cacff
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+
+PODFILE CHECKSUM: d1be44514331f4280f5915e147defe17ece869de
+
+COCOAPODS: 1.2.1

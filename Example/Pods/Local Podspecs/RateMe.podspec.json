@@ -1,0 +1,22 @@
+{
+  "name": "RateMe",
+  "version": "0.1.0",
+  "summary": "A short description of RateMe.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/kadirkemal/RateMe",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kadirkemal": "kkdursun@yahoo.com"
+  },
+  "source": {
+    "git": "https://github.com/kadirkemal/RateMe.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RateMe/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module RateMe {
+  umbrella header "RateMe-umbrella.h"
+
+  export *
+  module * { export * }
+}
