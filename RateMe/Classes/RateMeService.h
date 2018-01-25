@@ -11,8 +11,10 @@
 
 -(void) saveTriggerList:(NSCountedSet *) triggerList;
 -(NSCountedSet *) loadTriggerList;
+-(void) clearTriggerList;
 
 -(void) updateRemindMeLaterTime;
 -(NSDate *) remindMeLaterTime;
+-(void) clearRemindMeLaterTime;
 
 @end

@@ -7,35 +7,45 @@
 
 #import "RateMe.h"
 
+@interface RateMe()
+
+@property (strong, nonatomic) RateMeService *rateMeService;
+@property (strong, nonatomic) NSCountedSet *triggerList;
+
+@end
+
 @implementation RateMe{
-    RateMeService *_rateMeService;
     NSMutableArray<RateMeCondition *> *_conditionList;
-    NSCountedSet *_triggerList;
     dispatch_queue_t _rateMeQueue;
 }
 
 +(RateMe *) sharedInstance{
     static RateMe* _sharedInstance;
-    static dispatch_once_t token;
+    static dispatch_once_t _token;
     
-    dispatch_once(&token, ^{
+    dispatch_once(&_token, ^{
         _sharedInstance = [[RateMe alloc] initWithService:[RateMeService new]];
     });
     
     return _sharedInstance;
 }
 
+-(NSArray<RateMeCondition *> *)conditionList{
+    return [_conditionList copy];
+}
+
 -(instancetype) initWithService:(RateMeService *) service{
     self = [super init];
     if(self){
-        _rateMeService = service;
+        self.rateMeService = service;
         _rateMeQueue = dispatch_queue_create("com.zingat.rateme", DISPATCH_QUEUE_SERIAL);
         _conditionList = [NSMutableArray<RateMeCondition *> new];
         _remindMeLaterDuration = 3; //default value is 3 days
         _delayDuration = 10; //default value is 10 seconds
         
+        __weak typeof(self) weakSelf = self;
         dispatch_async(_rateMeQueue, ^{
-            _triggerList = [_rateMeService loadTriggerList];
+            weakSelf.triggerList = [weakSelf.rateMeService loadTriggerList];
         });
     }
     return self;
@@ -57,8 +67,8 @@
     __weak typeof(self) weakSelf = self;
     
     dispatch_async(_rateMeQueue, ^{
-        [_triggerList addObject:triggerName];
-        [_rateMeService saveTriggerList:_triggerList];
+        [weakSelf.triggerList addObject:triggerName];
+        [weakSelf.rateMeService saveTriggerList:weakSelf.triggerList];
         [weakSelf checkConditions];
     });
 }
@@ -67,7 +77,7 @@
     __weak typeof(self) weakSelf = self;
     
     for(RateMeCondition *condition in _conditionList){
-        if([condition checkCondition:_triggerList]){
+        if([condition checkCondition:weakSelf.triggerList]){
             [weakSelf waitAndCallRateMeDelegate];
             return;
         }
@@ -87,7 +97,23 @@
 }
 
 -(void) remindMeLater{
+    [self.rateMeService updateRemindMeLaterTime];
+}
+
+-(void) controlRemindMeLater{
+    if(!self.delegate){
+        return;
+    }
     
+    NSDate *date = [self.rateMeService remindMeLaterTime];
+    if(!date){
+        return;
+    }
+    
+    NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
+    if(secondsBetween > self.remindMeLaterDuration * 86400){
+        [self.delegate onRateMeTime];
+    }
 }
 
 

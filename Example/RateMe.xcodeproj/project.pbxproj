@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0756554F2019E37800DBCE14 /* RateMeServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0756554D2019D04F00DBCE14 /* RateMeServiceTests.m */; };
+		075655522019E44D00DBCE14 /* RateMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 075655502019E44100DBCE14 /* RateMeTests.m */; };
 		07AA66042019B81600E10291 /* RateMeConditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA66022019B7AA00E10291 /* RateMeConditionTests.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		032A80CF700512991CF10DDB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		0756554D2019D04F00DBCE14 /* RateMeServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateMeServiceTests.m; sourceTree = "<group>"; };
+		075655502019E44100DBCE14 /* RateMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateMeTests.m; sourceTree = "<group>"; };
 		07AA66022019B7AA00E10291 /* RateMeConditionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateMeConditionTests.m; sourceTree = "<group>"; };
 		0D93755B3A7D878B60832F62 /* Pods-RateMe_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMe_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RateMe_Tests/Pods-RateMe_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		193E99D92D286EFE0E00B7FA /* Pods_RateMe_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateMe_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,8 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				075655502019E44100DBCE14 /* RateMeTests.m */,
+				0756554D2019D04F00DBCE14 /* RateMeServiceTests.m */,
 				07AA66022019B7AA00E10291 /* RateMeConditionTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -404,7 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075655522019E44D00DBCE14 /* RateMeTests.m in Sources */,
 				07AA66042019B81600E10291 /* RateMeConditionTests.m in Sources */,
+				0756554F2019E37800DBCE14 /* RateMeServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

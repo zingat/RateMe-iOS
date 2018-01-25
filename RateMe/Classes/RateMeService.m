@@ -12,7 +12,7 @@ static NSString *const remindMeLaterTimeKey = @"com.zingat.rateme.remindmelatert
 
 @implementation RateMeService
 
--(void) saveTriggerList:(NSCountedSet *) triggerList{
+-(void) saveTriggerList:(nonnull NSCountedSet *) triggerList{
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     [preferences setObject:triggerList forKey:triggerListKey];
     [preferences synchronize];
@@ -27,6 +27,10 @@ static NSString *const remindMeLaterTimeKey = @"com.zingat.rateme.remindmelatert
     return r;
 }
 
+-(void) clearTriggerList{
+    [self saveTriggerList:[NSCountedSet new]];
+}
+
 -(void) updateRemindMeLaterTime{
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     [preferences setObject:[NSDate date] forKey:remindMeLaterTimeKey];
@@ -36,6 +40,12 @@ static NSString *const remindMeLaterTimeKey = @"com.zingat.rateme.remindmelatert
 -(nullable NSDate *) remindMeLaterTime{
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     return [preferences objectForKey:remindMeLaterTimeKey];
+}
+
+-(void)clearRemindMeLaterTime{
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences removeObjectForKey:remindMeLaterTimeKey];
+    [preferences synchronize];
 }
 
 @end
