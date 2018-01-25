@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "RateMe.h"
+#import "RateMeCondition.h"
+#import "RateMeService.h"
 
 FOUNDATION_EXPORT double RateMeVersionNumber;
 FOUNDATION_EXPORT const unsigned char RateMeVersionString[];

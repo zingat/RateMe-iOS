@@ -23,8 +23,8 @@
     return self;
 }
 
--(BOOL) checkCondition:(NSCountedSet *) triggerList{
-    if(![triggerList containsObject:_triggerName]){
+-(BOOL) checkCondition:(NSCountedSet *) triggerList{    
+    if(triggerList == nil || ![triggerList containsObject:_triggerName]){
         return NO;
     }
     
@@ -49,6 +49,10 @@
 }
 
 -(BOOL) checkCondition:(NSCountedSet *) triggerList{
+    if(triggerList == nil){
+        return NO;
+    }
+    
     int totalCount = 0;
     
     for(NSString *s in _triggerNameList){
@@ -76,6 +80,10 @@
 }
 
 -(BOOL) checkCondition:(NSCountedSet *) triggerList{
+    if(triggerList == nil){
+        return NO;
+    }
+    
     for(RateMeCondition *condition in _conditionList){
         if(![condition checkCondition:triggerList]){
             return NO;
@@ -97,11 +105,6 @@
 
 +(RateMeCondition *) rateMeConditionWithConditionList:(NSArray<RateMeCondition *> *)conditionList{
     return [[AndListRateMeCondition alloc] initWithConditionList:conditionList];
-}
-
--(instancetype)init{
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
 }
 
 -(instancetype) initWithTriggerName:(NSString *)triggerName count:(NSInteger) count{
