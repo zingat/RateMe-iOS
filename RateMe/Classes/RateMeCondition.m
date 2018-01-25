@@ -22,6 +22,14 @@
     }
     return self;
 }
+
+-(BOOL) checkCondition:(NSCountedSet *) triggerList{
+    if(![triggerList containsObject:_triggerName]){
+        return NO;
+    }
+    
+    return [triggerList countForObject:_triggerName] == _count;
+}
 @end
 
 @interface GroupTotalRateMeCondition : RateMeCondition
@@ -39,6 +47,18 @@
     }
     return self;
 }
+
+-(BOOL) checkCondition:(NSCountedSet *) triggerList{
+    int totalCount = 0;
+    
+    for(NSString *s in _triggerNameList){
+        if([triggerList containsObject:s]){
+            totalCount += [triggerList countForObject:s];
+        }
+    }
+
+    return totalCount == _count;
+}
 @end
 
 @interface AndListRateMeCondition : RateMeCondition
@@ -53,6 +73,15 @@
         _conditionList = conditionList;
     }
     return self;
+}
+
+-(BOOL) checkCondition:(NSCountedSet *) triggerList{
+    for(RateMeCondition *condition in _conditionList){
+        if(![condition checkCondition:triggerList]){
+            return NO;
+        }
+    }
+    return YES;
 }
 @end
 
@@ -87,7 +116,7 @@
     return [[AndListRateMeCondition alloc] initWithConditionList:conditionList];
 }
 
--(BOOL) checkCondition{
+-(BOOL) checkCondition:(NSCountedSet *) triggerList{
     //[self doesNotRecognizeSelector:_cmd];
     return NO;
 }

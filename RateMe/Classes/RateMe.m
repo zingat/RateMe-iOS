@@ -8,6 +8,7 @@
 #import "RateMe.h"
 
 @implementation RateMe{
+    RateMeService *_rateMeService;
     NSMutableArray<RateMeCondition *> *_conditionList;
     NSCountedSet *_triggerList;
     dispatch_queue_t _rateMeQueue;
@@ -27,13 +28,14 @@
 -(instancetype) initWithService:(RateMeService *) service{
     self = [super init];
     if(self){
+        _rateMeService = service;
         _rateMeQueue = dispatch_queue_create("com.zingat.rateme", DISPATCH_QUEUE_SERIAL);
         _conditionList = [NSMutableArray<RateMeCondition *> new];
         _remindMeLaterDuration = 3; //default value is 3 days
         _delayDuration = 10; //default value is 10 seconds
         
         dispatch_async(_rateMeQueue, ^{
-            _triggerList = [NSCountedSet new];
+            _triggerList = [_rateMeService loadTriggerList];
         });
     }
     return self;
@@ -56,17 +58,32 @@
     
     dispatch_async(_rateMeQueue, ^{
         [_triggerList addObject:triggerName];
+        [_rateMeService saveTriggerList:_triggerList];
         [weakSelf checkConditions];
     });
 }
 
 -(void) checkConditions{
+    __weak typeof(self) weakSelf = self;
+    
     for(RateMeCondition *condition in _conditionList){
-        if([condition checkCondition]){
-            //delagate
+        if([condition checkCondition:_triggerList]){
+            [weakSelf waitAndCallRateMeDelegate];
             return;
         }
     }
+}
+
+-(void) waitAndCallRateMeDelegate{
+    if(!_delegate){
+        return;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(_rateMeQueue, ^{
+        sleep(self.delayDuration);
+        [weakSelf.delegate onRateMeTime];
+    });
 }
 
 -(void) remindMeLater{

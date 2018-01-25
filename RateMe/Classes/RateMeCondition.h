@@ -17,6 +17,6 @@
 -(instancetype) initWithTriggerNameList:(NSArray<NSString *> *)triggerNameList count:(NSInteger) count;
 -(instancetype) initWithConditionList:(NSArray<RateMeCondition *> *)conditionList;
 
--(BOOL) checkCondition;
+-(BOOL) checkCondition:(NSCountedSet *) triggerList;
 
 @end

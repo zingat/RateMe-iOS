@@ -11,6 +11,8 @@
 
 @protocol RateMeDelegate<NSObject>
 
+-(void) onRateMeTime;
+
 @end
 
 @interface RateMe : NSObject
@@ -18,8 +20,8 @@
 +(RateMe *) sharedInstance;
 
 @property (weak) id<RateMeDelegate> delegate;
-@property (nonatomic) NSInteger delayDuration;
-@property (nonatomic) NSInteger remindMeLaterDuration;
+@property (nonatomic) uint delayDuration;
+@property (nonatomic) NSUInteger remindMeLaterDuration;
 
 -(instancetype) initWithService:(RateMeService *) service;
 

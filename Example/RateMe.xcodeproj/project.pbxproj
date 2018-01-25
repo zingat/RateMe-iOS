@@ -37,12 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		032A80CF700512991CF10DDB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		032A80CF700512991CF10DDB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0D93755B3A7D878B60832F62 /* Pods-RateMe_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMe_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RateMe_Tests/Pods-RateMe_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		193E99D92D286EFE0E00B7FA /* Pods_RateMe_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateMe_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		274D09D789DD7CE952565D4C /* Pods_RateMe_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateMe_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2DB5ED405D822443267652 /* Pods-RateMe_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMe_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RateMe_Tests/Pods-RateMe_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3031DF4755624117D30FF516 /* RateMe.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = RateMe.podspec; path = ../RateMe.podspec; sourceTree = "<group>"; };
+		3031DF4755624117D30FF516 /* RateMe.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RateMe.podspec; path = ../RateMe.podspec; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* RateMe_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMe_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,7 +64,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B9417658630CAA8C974D7B7D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B9417658630CAA8C974D7B7D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C2168BC57ACAC3FCF31ACCA8 /* Pods-RateMe_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMe_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RateMe_Example/Pods-RateMe_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D26FC8C1B6CDF32C6EC9F951 /* Pods-RateMe_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMe_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RateMe_Example/Pods-RateMe_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
