@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 Getting five star comments are very important for every application. RateMe helps you to track your users and warn you when the application is used by a satisfied user. RateMe is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
                        DESC
 
-  s.homepage         = 'https://github.com/kadirkemal/RateMe'
+  s.homepage         = 'https://github.com/zingat/RateMe-iOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'kadirkemal' => 'kkdursun@yahoo.com' }
