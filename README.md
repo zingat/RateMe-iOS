@@ -35,6 +35,8 @@ Think that you want to warn the users who open the product detail page 4 times.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 // Override point for customization after application launch.
+
+//VisitDetailPage is the triggerName
 [[RateMe sharedInstance] addConditionWithName:@"VisitDetailPage" count:4];
 [RateMe sharedInstance].delegate = self;
 
@@ -48,13 +50,14 @@ return YES;
 @end
 ```
 
-Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
+#### Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
 ```objectivec
 - (void)viewDidLoad
 {
 [super viewDidLoad];
 // Do any additional setup after loading the view, typically from a nib.
 
+//use the same name for the trigger
 [[RateMe sharedInstance] trigger:@"VisitDetailPage"];
 }
 ```
@@ -62,7 +65,7 @@ Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
 ### Sample 2
 Think that you want to warn the users who open the product detail page 4 times OR who login once.
 
-Initiaze RateMe in the AppDelegate
+#### Initiaze RateMe in the AppDelegate
 ```objectivec
 #import <RateMe/RateMe.h>
 
@@ -88,7 +91,7 @@ return YES;
 @end
 ```
 
-Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
+#### Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
 ```objectivec
 - (void)viewDidLoad
 {
@@ -99,7 +102,7 @@ Send trigger to RateMe in viewDidLoad of the ProductDetailViewController
 }
 ```
 
-Send trigger to RateMe when the user loggin
+#### Send trigger to RateMe when the user loggin
 ```objectivec
 [[RateMe sharedInstance] trigger:@"Login"];
 ```
