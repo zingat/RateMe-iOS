@@ -9,8 +9,7 @@ Getting five star comments are very important for every application. RateMe help
 
 ## Installation
 
-RateMe is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+RateMe is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```
 pod 'RateMe'
