@@ -7,6 +7,7 @@
 //
 
 #import "ZngViewController.h"
+#import <RateMe/RateMe.h>
 
 @interface ZngViewController ()
 
@@ -20,10 +21,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     
-    NSNumber *aChar = [NSNumber numberWithChar:'a'];
-    NSNumber *anInt = [NSNumber numberWithInt:1];
-    NSNumber *aFloat = [NSNumber numberWithFloat:1.0];
-    NSNumber *aDouble = [NSNumber numberWithDouble:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -31,5 +28,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)onClickedEvent1:(id)sender {
+    [[RateMe sharedInstance] trigger:@"event1"];
+}
+
+- (IBAction)onClickedEvent2:(id)sender {
+    [[RateMe sharedInstance] trigger:@"event2"];
+}
+
+- (IBAction)onClickedEvent3:(id)sender {
+    [[RateMe sharedInstance] trigger:@"event3"];
+}
+
+- (IBAction)onClickedEvent4:(id)sender {
+    [[RateMe sharedInstance] trigger:@"event4"];
+}
+
 
 @end

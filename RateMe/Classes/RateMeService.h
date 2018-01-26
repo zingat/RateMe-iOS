@@ -17,4 +17,7 @@
 -(NSDate *) remindMeLaterTime;
 -(void) clearRemindMeLaterTime;
 
+-(void) increaseOnRateMeTimeCounter;
+-(NSInteger) onRateMeTimeCounter;
+
 @end

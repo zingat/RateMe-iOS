@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Zng View Controller-->
         <scene sceneID="wQg-tq-qST">
             <objects>
                 <viewController id="whP-gf-Uak" customClass="ZngViewController" sceneMemberID="viewController">
@@ -20,12 +21,56 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq2-20-fBq">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <state key="normal" title="Event 1 Button"/>
+                                <connections>
+                                    <action selector="onClickedEvent1:" destination="whP-gf-Uak" eventType="touchUpInside" id="GN9-GC-xp8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRY-yy-6PL">
+                                <rect key="frame" x="16" y="66" width="343" height="30"/>
+                                <state key="normal" title="Event 2 Button"/>
+                                <connections>
+                                    <action selector="onClickedEvent2:" destination="whP-gf-Uak" eventType="touchUpInside" id="83p-VI-2Od"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Py-Vp-Xk7">
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <state key="normal" title="Event 3 Button"/>
+                                <connections>
+                                    <action selector="onClickedEvent3:" destination="whP-gf-Uak" eventType="touchUpInside" id="Zlp-z3-6rx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqF-7a-1N5">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <state key="normal" title="Event 4 Button"/>
+                                <connections>
+                                    <action selector="onClickedEvent4:" destination="whP-gf-Uak" eventType="touchUpInside" id="h6p-Ys-ArT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jRY-yy-6PL" firstAttribute="top" secondItem="dq2-20-fBq" secondAttribute="bottom" constant="8" id="9uT-21-mas"/>
+                            <constraint firstItem="2Py-Vp-Xk7" firstAttribute="top" secondItem="jRY-yy-6PL" secondAttribute="bottom" constant="8" id="AoT-QL-jwN"/>
+                            <constraint firstItem="jRY-yy-6PL" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="DJ3-6R-bLP"/>
+                            <constraint firstItem="dq2-20-fBq" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="E0I-oo-D9f"/>
+                            <constraint firstItem="jRY-yy-6PL" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="F2n-Zu-r97"/>
+                            <constraint firstItem="dq2-20-fBq" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="OPr-T0-3wq"/>
+                            <constraint firstItem="LqF-7a-1N5" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="Oum-TU-39G"/>
+                            <constraint firstItem="2Py-Vp-Xk7" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="PRU-c5-Kd7"/>
+                            <constraint firstItem="LqF-7a-1N5" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="U23-Hy-Klc"/>
+                            <constraint firstItem="dq2-20-fBq" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" id="gH7-Qu-Fvf"/>
+                            <constraint firstItem="2Py-Vp-Xk7" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="r0k-ay-TGJ"/>
+                            <constraint firstItem="LqF-7a-1N5" firstAttribute="top" secondItem="2Py-Vp-Xk7" secondAttribute="bottom" constant="8" id="ww8-II-8kk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
         </scene>
     </scenes>
 </document>

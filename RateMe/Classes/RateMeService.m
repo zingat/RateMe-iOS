@@ -9,22 +9,29 @@
 
 static NSString *const triggerListKey = @"com.zingat.rateme.triggerlist";
 static NSString *const remindMeLaterTimeKey = @"com.zingat.rateme.remindmelatertime";
+static NSString *const onRateMeTimeCounterKey = @"com.zingat.rateme.onratemetimecounter";
 
 @implementation RateMeService
 
 -(void) saveTriggerList:(nonnull NSCountedSet *) triggerList{
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    [preferences setObject:triggerList forKey:triggerListKey];
+    
+    NSData * serializedSet = [NSKeyedArchiver archivedDataWithRootObject:triggerList];
+    [preferences setObject:serializedSet forKey:triggerListKey];
+    
     [preferences synchronize];
 }
 
 -(nonnull NSCountedSet *) loadTriggerList{
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    NSCountedSet *r = [preferences objectForKey:triggerListKey];
+    
+    NSData *r = [preferences objectForKey:triggerListKey];
     if(r == nil){
         return [NSCountedSet new];
     }
-    return r;
+    
+    NSCountedSet *countedSet = [NSKeyedUnarchiver unarchiveObjectWithData:r];
+    return countedSet;
 }
 
 -(void) clearTriggerList{
@@ -46,6 +53,18 @@ static NSString *const remindMeLaterTimeKey = @"com.zingat.rateme.remindmelatert
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     [preferences removeObjectForKey:remindMeLaterTimeKey];
     [preferences synchronize];
+}
+
+-(void) increaseOnRateMeTimeCounter{
+    NSInteger counter = [self onRateMeTimeCounter];
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setInteger:counter+1 forKey:onRateMeTimeCounterKey];
+    [preferences synchronize];
+}
+
+-(NSInteger) onRateMeTimeCounter{
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    return [preferences integerForKey:onRateMeTimeCounterKey];
 }
 
 @end

@@ -38,14 +38,20 @@
     self = [super init];
     if(self){
         self.rateMeService = service;
+        _isWorking = YES;
         _rateMeQueue = dispatch_queue_create("com.zingat.rateme", DISPATCH_QUEUE_SERIAL);
         _conditionList = [NSMutableArray<RateMeCondition *> new];
         _remindMeLaterDuration = 3; //default value is 3 days
         _delayDuration = 10; //default value is 10 seconds
+        //_maximumNumberOfRateMeTimeEvent = 1;
         
         __weak typeof(self) weakSelf = self;
         dispatch_async(_rateMeQueue, ^{
+            [weakSelf stopRateMeIfDone];
             weakSelf.triggerList = [weakSelf.rateMeService loadTriggerList];
+            if(weakSelf.isWorking){
+                [weakSelf checkConditions];
+            }
         });
     }
     return self;
@@ -64,10 +70,14 @@
 }
 
 -(void) trigger:(NSString *)triggerName{
-    __weak typeof(self) weakSelf = self;
+    if(!_isWorking){
+        return;
+    }
     
+    __weak typeof(self) weakSelf = self;
+    NSString *tName = triggerName;
     dispatch_async(_rateMeQueue, ^{
-        [weakSelf.triggerList addObject:triggerName];
+        [weakSelf.triggerList addObject:tName];
         [weakSelf.rateMeService saveTriggerList:weakSelf.triggerList];
         [weakSelf checkConditions];
     });
@@ -93,28 +103,40 @@
     dispatch_async(_rateMeQueue, ^{
         sleep(self.delayDuration);
         [weakSelf.delegate onRateMeTime];
+        
+        [weakSelf.rateMeService increaseOnRateMeTimeCounter];
+        [weakSelf stopRateMeIfDone];
     });
 }
 
--(void) remindMeLater{
-    [self.rateMeService updateRemindMeLaterTime];
-}
-
--(void) controlRemindMeLater{
-    if(!self.delegate){
-        return;
-    }
-    
-    NSDate *date = [self.rateMeService remindMeLaterTime];
-    if(!date){
-        return;
-    }
-    
-    NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
-    if(secondsBetween > self.remindMeLaterDuration * 86400){
-        [self.delegate onRateMeTime];
+-(void) stopRateMeIfDone{
+    NSInteger counter = [self.rateMeService onRateMeTimeCounter];
+    //if(counter >= self.maximumNumberOfRateMeTimeEvent){
+    if(counter >= 1){
+        _isWorking = NO;
     }
 }
 
+//-(void) remindMeLater{
+//    [self.rateMeService updateRemindMeLaterTime];
+//}
+//
+//-(void) controlRemindMeLater{
+//    if(!self.delegate){
+//        return;
+//    }
+//
+//    NSDate *date = [self.rateMeService remindMeLaterTime];
+//    if(!date){
+//        return;
+//    }
+//
+//    NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
+//    if(secondsBetween > self.remindMeLaterDuration * 86400){
+//        [self.rateMeService increaseOnRateMeTimeCounter];
+//        [self.rateMeService clearRemindMeLaterTime];
+//        [self.delegate onRateMeTime];
+//    }
+//}
 
 @end
