@@ -1,4 +1,4 @@
-# AndVersion
+# RateMe
 
 [![CI Status](http://img.shields.io/travis/kadirkemal/RateMe.svg?style=flat)](https://travis-ci.org/kadirkemal/RateMe)
 [![Version](https://img.shields.io/cocoapods/v/RateMe.svg?style=flat)](http://cocoapods.org/pods/RateMe)
@@ -23,7 +23,7 @@ RateMe uses GCD to avoid blocking the UI. RateMe uses a serial GCD queue to avoi
 ### Sample 1
 Think that you want to warn the users who open the product detail page 4 times.
 
-Initiaze RateMe in the AppDelegate
+#### Initiaze RateMe in the AppDelegate
 ```objectivec
 #import <RateMe/RateMe.h>
 
