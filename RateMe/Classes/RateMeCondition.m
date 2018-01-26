@@ -28,7 +28,7 @@
         return NO;
     }
     
-    return [triggerList countForObject:_triggerName] == _count;
+    return [triggerList countForObject:_triggerName] >= _count;
 }
 @end
 
@@ -61,7 +61,7 @@
         }
     }
 
-    return totalCount == _count;
+    return totalCount >= _count;
 }
 @end
 

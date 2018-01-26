@@ -22,7 +22,7 @@
 @property (weak) id<RateMeDelegate> delegate;
 @property (nonatomic, readonly) NSArray<RateMeCondition*> *conditionList;
 @property (nonatomic) uint delayDuration;
-@property (nonatomic) NSUInteger remindMeLaterDuration;
+//@property (nonatomic) NSUInteger remindMeLaterDuration;
 //@property (nonatomic) NSUInteger maximumNumberOfRateMeTimeEvent;
 @property (nonatomic, readonly) BOOL isWorking;
 

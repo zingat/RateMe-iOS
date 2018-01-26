@@ -41,7 +41,7 @@
         _isWorking = YES;
         _rateMeQueue = dispatch_queue_create("com.zingat.rateme", DISPATCH_QUEUE_SERIAL);
         _conditionList = [NSMutableArray<RateMeCondition *> new];
-        _remindMeLaterDuration = 3; //default value is 3 days
+        //_remindMeLaterDuration = 3; //default value is 3 days
         _delayDuration = 10; //default value is 10 seconds
         //_maximumNumberOfRateMeTimeEvent = 1;
         

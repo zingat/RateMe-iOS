@@ -21,6 +21,8 @@
     [[RateMe sharedInstance] addConditionWithName:@"event1" count:3];
     [[RateMe sharedInstance] addConditionWithName:@"event2" count:5];
     [[RateMe sharedInstance] addConditionWithNameList:@[@"event3", @"event4"] count:5];
+    [RateMe sharedInstance].delayDuration = 5;
+    
     [RateMe sharedInstance].delegate = self;
     
     return YES;
