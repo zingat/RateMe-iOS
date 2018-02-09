@@ -108,7 +108,7 @@ return YES;
 
 You can add infinitive OR statement by using addConditionWithName or addConditionWithNameList or addCondition methods.
 
-### Sample 4
+### Sample 3
 You can use addConditionWithNameList method when the total number of some triggers reaches to wanted count.
 ```objectivec
 #import <RateMe/RateMe.h>
@@ -135,7 +135,7 @@ return YES;
 ```
 When the total number of trigger1 and trigger2 reaches to 5, onRateMe events will be called.
 
-### Sample 5
+### Sample 4
 For AND conditions you need to create your own conditions.
 
 ```objectivec
@@ -187,5 +187,5 @@ Zingat Mobile Team
 
 ## License
 
-AndVersion is available under the MIT license. See the LICENSE file for more info.
+RateMe is available under the MIT license. See the LICENSE file for more info.
 
