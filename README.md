@@ -174,7 +174,7 @@ onRateMe events will be called when trigger1 is occurred 3 times, trigger2 is oc
 
 
 ### Changing Delay Time
-When trigger count reach to wanted number, RateMe waits delayDuration seconds (default is 10 seconds) and then call the onRateMeTime method. If you want to change this duration;
+When trigger count reaches to wanted number, RateMe waits some seconds (default is 10 seconds) before calling the onRateMeTime method. If you want to change this duration;
 
 ```objectivec
 [RateMe sharedInstance].delayDuration = 5; //now delayDuration is 5 seconds
