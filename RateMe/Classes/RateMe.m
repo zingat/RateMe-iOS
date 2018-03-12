@@ -58,15 +58,21 @@
 }
 
 -(void) addConditionWithName:(NSString *)triggerName count:(int)triggerCount{
-    [_conditionList addObject:[RateMeCondition rateMeConditionWithTriggerName:triggerName count:triggerCount]];
+    dispatch_async(_rateMeQueue, ^{
+        [_conditionList addObject:[RateMeCondition rateMeConditionWithTriggerName:triggerName count:triggerCount]];
+    });
 }
 
 -(void) addConditionWithNameList:(NSArray<NSString *> *)triggerNameList count:(int)triggerCount{
-    [_conditionList addObject:[RateMeCondition rateMeConditionWithTriggerNameList:triggerNameList count:triggerCount]];
+    dispatch_async(_rateMeQueue, ^{
+        [_conditionList addObject:[RateMeCondition rateMeConditionWithTriggerNameList:triggerNameList count:triggerCount]];
+    });
 }
 
 -(void) addCondition:(RateMeCondition *) condition{
-    [_conditionList addObject:condition];
+    dispatch_async(_rateMeQueue, ^{
+        [_conditionList addObject:condition];
+    });
 }
 
 -(void) trigger:(NSString *)triggerName{
@@ -102,6 +108,10 @@
     __weak typeof(self) weakSelf = self;
     dispatch_async(_rateMeQueue, ^{
         sleep(self.delayDuration);
+        if(! _isWorking){
+            return;
+        }
+        
         [weakSelf.delegate onRateMeTime];
         
         [weakSelf.rateMeService increaseOnRateMeTimeCounter];

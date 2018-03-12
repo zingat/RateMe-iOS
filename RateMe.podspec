@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RateMe'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'RateMe helps you to track your users and warn you when the application is used by a satisfied user.'
 
 # This description is used to generate tags and improve search results.
